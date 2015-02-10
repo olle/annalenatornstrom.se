@@ -7,6 +7,7 @@
   <title>Annalena Törnström - Konstnär</title>
   <meta name="description" content="Konstnären Annalena Törnströms hemsida." />
   <meta name="keywords" content="konstnär annalena törnström grafik måleri installationer" />
+  <meta name="version" content="0.1.0" />
   <style type="text/css" id="baseline">
     * {
       margin: 0;
@@ -14,7 +15,8 @@
       box-sizing: border-box;
       list-style: none;
     }
-    html, body {
+    html,
+    body {
       height: 100%;
       width: 100%;
     }
@@ -37,15 +39,16 @@
       padding: .6em 0;
       font-weight: 100;
       text-align: center;
-      letter-spacing: 0.07em;
-      background: rgba(128, 128, 128, .1);
+      letter-spacing: 0.06em;
+      line-height: 1.23456789;
+      background: rgba(255, 255, 255, .9);
     }
-    .alt-logo > small {
+    .alt-logo > em {
+      font-style: normal;
       font-size: 40%;
-      clear: all;
       display: block;
       text-transform: uppercase;
-      font-weight: 200;
+      font-weight: 300;
     }
     .alt-copyright {
       text-align: center;
@@ -53,38 +56,33 @@
       padding: 1em 0;
       font-size: 60%;
     }
-    img {
+    .alt-image {
       display: block;
-      width: 100%;
-      padding: 1em 1em 0 1em;
+      padding: 1.7em 1.3em;
+      padding-bottom: 0;
     }
-    @media screen and (min-width: 20.000em) {
-      body {
-        font-size: 100%;
-      }
+    .alt-image:last-child {
+      padding-bottom: 1em;
+    }
+    .alt-image > img {
+      width: 100%;
     }
   </style>
 </head>
 
 <body>
   <header>
-    <h1 class="alt-logo">Annalena Törnström <small>Konstnär</small></h1>
+    <h1 class="alt-logo">Annalena Törnström <em>Konstnär</em></h1>
   </header>
   <main>
     <ul>
-      <li><img src="./img/agrafik12@lowres.png" alt="" /></li>
-      <li><img src="./img/agrafik33@lowres.png" alt="" /></li>
-      <!--
-      <li><img src="./img/ahild14_tn.jpg" alt="" /></li>
-      <li><img src="./img/ahild15_tn.jpg" alt="" /></li>
-      <li><img src="./img/flygplan-b_tn.jpg" alt="" /></li>
-      <li><img src="./img/flygplan-c_tn.jpg" alt="" /></li>
-      <li><img src="./img/flygplan-d_tn.jpg" alt="" /></li>
-      <li><img src="./img/flygplan4_tn.jpg" alt="" /></li>
-      -->
+      <li class="alt-image"><img src="img/agrafik12@lowres.png" alt="" /></li>
+      <li class="alt-image"><img src="img/agrafik33@lowres.png" alt="" /></li>
     </ul>
   </main>
-  <footer><p class="alt-copyright">Alla rättigheter &copy; Annalena Törnström 2015</p></footer>
+  <footer>
+    <p class="alt-copyright">Alla rättigheter &copy; Annalena Törnström 2015</p>
+  </footer>
 </body>
 
 </html>
