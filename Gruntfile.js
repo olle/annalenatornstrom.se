@@ -6,6 +6,13 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     connect: {
+      simple: {
+        options: {
+          port: 8088,
+          open: 'http://localhost:8088',
+          keepalive: true,
+        }
+      },
       web: {
         options: {
           port: 8088,
@@ -26,9 +33,8 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('default', [
-    'connect',
-    'watch'
-  ]);
+  grunt.registerTask('default', ['connect:web', 'watch:web']);
+
+  grunt.registerTask('web', ['connect:simple']);
 
 };
