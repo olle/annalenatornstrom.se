@@ -21,9 +21,9 @@
       width: 100%;
     }
     body {
-      font: normal 100%/1.6789 "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font: normal 300 100%/1.6789 "Helvetica Neue", Helvetica, Arial, sans-serif;
       background: #f1f1f1;
-      color: #333;
+      color: #666;
       display: table;
     }
     main {
@@ -35,36 +35,39 @@
       min-height: 1px;
     }
     .alt-logo {
+      color: #000;
       font-size: 180%;
       padding: .6em 0;
       font-weight: 100;
       text-align: center;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
       line-height: 1.23456789;
-      background: rgba(255, 255, 255, .9);
+      background: rgba(255, 255, 255, .8);
     }
     .alt-logo > em {
+      color: #666;
       font-style: normal;
       font-size: 40%;
       display: block;
       text-transform: uppercase;
-      font-weight: 300;
+      font-weight: 400;
     }
-    .alt-copyright {
+    .alt-copyright,
+    .alt-attribution {
       text-align: center;
-      color: #666;
       padding: 1em 0;
       font-size: 60%;
     }
     .alt-image {
       display: block;
-      padding: 1.7em 1.3em;
-      padding-bottom: 0;
+      padding: 1.4em 1.7em;
+      padding-bottom: 0em;
     }
     .alt-image:last-child {
       padding-bottom: 1em;
     }
     .alt-image > img {
+      margin: 0;
       width: 100%;
     }
   </style>
@@ -75,14 +78,15 @@
     <h1 class="alt-logo">Annalena Törnström <em>Konstnär</em></h1>
   </header>
   <main>
-    <ul>
-      <li class="alt-image"><img src="img/agrafik12@lowres.png" alt="" /></li>
-      <li class="alt-image"><img src="img/agrafik33@lowres.png" alt="" /></li>
+    <ul id="alt-images">
+      <li class="alt-image"><img src="compositions/agrafik12@lowres.png" alt="" /></li>
+      <li class="alt-image"><img src="compositions/agrafik33@lowres.png" alt="" /></li>
     </ul>
   </main>
   <footer>
     <p class="alt-copyright">Alla rättigheter &copy; Annalena Törnström 2015</p>
   </footer>
+  <script defer src="js/base.js"></script>
 </body>
 
 </html>

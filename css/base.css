@@ -1,0 +1,20 @@
+.is-hidden {
+  display: none !important;
+}
+
+.alt-more--arrow {
+  display: block;
+  width:  47px;
+  height: 47px;
+  border: none;
+  margin: 0 auto 2em;
+  background: url(../img/arrow-down.svg);
+  background-size: cover;
+  opacity: .4;
+}
+
+.alt-more--title {
+  color: inherit;
+  text-align: center;
+  margin-bottom: .5em;
+}
