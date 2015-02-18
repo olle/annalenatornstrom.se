@@ -1,9 +1,21 @@
-(function($win, $doc) {
+var _alt_ = window['_alt_'] = {};
 
-  var $style = $doc.createElement('link');
-  $style.setAttribute('rel', 'stylesheet');
-  $style.setAttribute('href', 'css/base.css');
-  $doc.getElementsByTagName('head')[0].appendChild($style);
+(function($win, $doc, $$) {
+
+  var loadCss = function (href) {
+    var $style = $doc.createElement('link');
+    $style.setAttribute('rel', 'stylesheet');
+    $style.setAttribute('href', href);
+    $doc.getElementsByTagName('head')[0].appendChild($style);
+  };
+
+  var loadJs = function (src) {
+    var $script = $doc.createElement('script');
+    $script.setAttribute('src', src);
+    $doc.getElementsByTagName('body')[0].appendChild($script);
+  };
+
+  loadCss('css/base.css');
 
   var images = [
     'compositions/ahild14@lowres.png',
@@ -20,10 +32,13 @@
         var $li = $doc.createElement('li');
         $li.setAttribute('class', 'alt-image');
         var $img = $doc.createElement('img');
-        $img.setAttribute('src', src);
         $img.setAttribute('alt', '');
         $li.appendChild($img);
         $doc.getElementById('alt-images').appendChild($li);
+        $img.addEventListener("load", function() {
+          ($$.onImageAppended || function () {}).call();
+        }, false);
+        $img.setAttribute('src', src);
       });
     } else {
       $doc.body.querySelector('.alt-more--title').setAttribute('class', 'alt-more--title is-hidden');
@@ -43,4 +58,9 @@
   $button.addEventListener('click', appendImage);
   $main.appendChild($button);
 
-})(window, document);
+  if ($win.screen.width > 480) {
+    loadCss('css/extend.css');
+    loadJs('js/extend.js');
+  }
+
+})(window, document, _alt_);
