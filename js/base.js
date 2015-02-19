@@ -26,7 +26,7 @@ var _alt_ = window['_alt_'] = {};
     'compositions/flygplan4@lowres.png',
   ];
 
-  var appendImage = function() {
+  $$.appendImage = function() {
     if (images.length > 0) {
       images.splice(0, 2).forEach(function(src) {
         var $li = $doc.createElement('li');
@@ -55,7 +55,7 @@ var _alt_ = window['_alt_'] = {};
 
   var $button = $doc.createElement('button');
   $button.setAttribute('class', 'alt-more--arrow');
-  $button.addEventListener('click', appendImage);
+  $button.addEventListener('click', $$.appendImage);
   $main.appendChild($button);
 
   if ($win.screen.width > 480) {

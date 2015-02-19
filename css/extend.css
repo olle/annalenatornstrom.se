@@ -1,2 +1,35 @@
-body {
+
+@media screen and (min-width: 29.938em) { /*479px*/
+  body { font-size: 105%; }
+
+  .alt-image {
+    padding: 2.3em;
+    padding-bottom: 0;
+  }
 }
+
+@media screen and (min-width: 37.500em) { /*600px*/
+  body { font-size: 110%; }
+
+  #alt-images {
+    padding: 2em;
+    -webkit-column-count: 2;
+       -moz-column-count: 2;
+            column-count: 2;
+    -webkit-column-gap: 2em;
+       -moz-column-gap: 2em;
+            column-gap: 2em;
+  }
+
+  .alt-image {
+    padding: 0 0 2em 0;
+  }
+
+}
+
+/* Other sizes: */
+/*599px*/
+/*600px*/
+/*800px*/
+/*1030px*/
+/*1200px X 500px*/
