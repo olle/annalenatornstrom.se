@@ -33,8 +33,8 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('default', ['connect:web', 'watch:web']);
+  grunt.registerTask('serve', ['connect:web', 'watch:web']);
 
-  grunt.registerTask('web', ['connect:simple']);
+  grunt.registerTask('default', ['connect:simple']);
 
 };
