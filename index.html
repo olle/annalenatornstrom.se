@@ -26,6 +26,10 @@
       color: #666;
       display: table;
     }
+    header {
+      background: white;
+      text-align: center;
+    }
     main {
       display: table-row;
       height: 100%;
@@ -34,9 +38,24 @@
       display: table-row;
       min-height: 1px;
     }
+    .alt-nav {
+      background: url(../img/hamburger-menu.svg) 50% 50% no-repeat;
+      background-size: contain;
+      opacity: .4;
+    }
+    .alt-nav {
+      -webkit-transition: width 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+              transition: width 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+      display: inline-block;
+      width: 0px;
+      height: 0px;
+    }
     .alt-logo {
+      display: inline-block;
       color: #000;
       font-size: 180%;
+      -webkit-transition: font-size 1.4s cubic-bezier(0.19, 1, 0.22, 1);
+              transition: font-size 1.4s cubic-bezier(0.19, 1, 0.22, 1);
       padding: .6em 0;
       font-weight: 100;
       text-align: center;
@@ -76,6 +95,7 @@
 
 <body>
   <header>
+    <nav class="alt-nav"></nav>
     <h1 class="alt-logo">Annalena Törnström <em>Konstnär</em></h1>
   </header>
   <main>

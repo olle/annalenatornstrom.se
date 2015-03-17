@@ -1,11 +1,13 @@
 
-@media screen and (min-width: 29.938em) { /*479px*/
+@media screen and (min-width: 30em) { /*480px*/
+  /*
   body { font-size: 105%; }
 
   .alt-image {
     padding: 2.3em;
     padding-bottom: 0;
   }
+  */
 }
 
 @media screen and (min-width: 37.500em) { /*600px*/
