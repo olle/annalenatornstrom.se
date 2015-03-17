@@ -12,6 +12,9 @@
   background-size: cover;
   opacity: .4;
 }
+.alt-more--arrow:hover {
+  cursor: pointer;
+}
 
 .alt-more--title {
   color: inherit;

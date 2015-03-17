@@ -2,22 +2,40 @@ var _alt_ = window['_alt_'] = {};
 
 (function($win, $doc, $$) {
 
-  var loadCss = function (href) {
+  var loadCss = $$.loadCss = function(href) {
     var $style = $doc.createElement('link');
     $style.setAttribute('rel', 'stylesheet');
     $style.setAttribute('href', href);
     $doc.getElementsByTagName('head')[0].appendChild($style);
   };
 
-  var loadJs = function (src) {
+  var loadJs = $$.loadJs = function(src) {
     var $script = $doc.createElement('script');
     $script.setAttribute('src', src);
     $doc.getElementsByTagName('body')[0].appendChild($script);
   };
 
+  var ajax = $$.ajax = function(url, success, options) {
+    options = options || {};
+    try {
+      var x = new(XMLHttpRequest || ActiveXObject)(
+        'MSXML2.XMLHTTP.3.0');
+      x.open(options.data ? 'POST' : 'GET', url, 1);
+      x.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+      x.setRequestHeader('Content-type',
+        'application/x-www-form-urlencoded');
+      x.onreadystatechange = function() {
+        x.readyState > 3 && success && sucess(x.responseText, x);
+      };
+      x.send(options.data)
+    } catch (e) {
+      (options.error || function() {})(e);
+    }
+  };
+
   loadCss('css/base.css');
 
-  var images = [
+  var images = $$.compositions = [
     'compositions/ahild14@lowres.png',
     'compositions/ahild15@lowres.png',
     'compositions/flygplan-b@lowres.png',
@@ -26,9 +44,9 @@ var _alt_ = window['_alt_'] = {};
     'compositions/flygplan4@lowres.png',
   ];
 
-  $$.appendImage = function() {
+  $$.appendImages = function(num) {
     if (images.length > 0) {
-      images.splice(0, 2).forEach(function(src) {
+      images.splice(0, num || 2).forEach(function(src) {
         var $li = $doc.createElement('li');
         $li.setAttribute('class', 'alt-image');
         var $img = $doc.createElement('img');
@@ -36,13 +54,15 @@ var _alt_ = window['_alt_'] = {};
         $li.appendChild($img);
         $doc.getElementById('alt-images').appendChild($li);
         $img.addEventListener("load", function() {
-          ($$.onImageAppended || function () {}).call();
+          ($$.onImageAppended || function() {}).call();
         }, false);
         $img.setAttribute('src', src);
       });
     } else {
-      $doc.body.querySelector('.alt-more--title').setAttribute('class', 'alt-more--title is-hidden');
-      $doc.body.querySelector('.alt-more--arrow').setAttribute('class', 'alt-more--arrow is-hidden');
+      $doc.body.querySelector('.alt-more--title').setAttribute('class',
+        'alt-more--title is-hidden');
+      $doc.body.querySelector('.alt-more--arrow').setAttribute('class',
+        'alt-more--arrow is-hidden');
     }
   };
 
@@ -55,7 +75,9 @@ var _alt_ = window['_alt_'] = {};
 
   var $button = $doc.createElement('button');
   $button.setAttribute('class', 'alt-more--arrow');
-  $button.addEventListener('click', $$.appendImage);
+  $button.addEventListener('click', function () {
+    $$.appendImages();
+  });
   $main.appendChild($button);
 
   if ($win.screen.width > 480) {
