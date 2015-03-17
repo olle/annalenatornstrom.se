@@ -14,10 +14,33 @@
 }
 .alt-more--arrow:hover {
   cursor: pointer;
+  opacity: 1;
 }
 
 .alt-more--title {
   color: inherit;
   text-align: center;
   margin-bottom: .5em;
+}
+
+.alt-nav {
+  width: 36px;
+  height: 36px;
+  margin-right: .4em;
+}
+.alt-nav:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.alt-logo {
+  font-size: 160%;
+}
+
+@media screen and (min-width: 26em) { /*416px*/
+  .alt-nav {
+    position: absolute;
+    left: 28px;
+    top: 20px;
+  }
 }
