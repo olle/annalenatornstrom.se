@@ -44,26 +44,29 @@ var _alt_ = window['_alt_'] = {};
     'compositions/flygplan4@lowres.png',
   ];
 
-  $$.appendImages = function(num) {
-    if (images.length > 0) {
-      images.splice(0, num || 2).forEach(function(src) {
-        var $li = $doc.createElement('li');
-        $li.setAttribute('class', 'alt-image');
-        var $img = $doc.createElement('img');
-        $img.setAttribute('alt', '');
-        $li.appendChild($img);
-        $doc.getElementById('alt-images').appendChild($li);
-        $img.addEventListener("load", function() {
-          ($$.onImageAppended || function() {}).call();
-        }, false);
-        $img.setAttribute('src', src);
-      });
-    } else {
+  var hideWhenEmpty = function () {
+    if (images.length < 1) {
       $doc.body.querySelector('.alt-more--title').setAttribute('class',
         'alt-more--title is-hidden');
       $doc.body.querySelector('.alt-more--arrow').setAttribute('class',
         'alt-more--arrow is-hidden');
     }
+  };
+
+  $$.appendImages = function(num) {
+    images.splice(0, num || 1).forEach(function(src) {
+      var $li = $doc.createElement('li');
+      $li.setAttribute('class', 'alt-image');
+      var $img = $doc.createElement('img');
+      $img.setAttribute('alt', '');
+      $li.appendChild($img);
+      $doc.getElementById('alt-images').appendChild($li);
+      $img.addEventListener("load", function() {
+        ($$.onImageAppended || function() {}).call();
+        hideWhenEmpty.call();
+      }, false);
+      $img.setAttribute('src', src);
+    });
   };
 
   var $main = $doc.getElementsByTagName('main')[0];
